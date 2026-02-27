@@ -1,0 +1,313 @@
+body {
+   background-color: black;
+   color: white;
+   margin: 0;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px 30px 0px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nome {
+    margin: 0;
+    font-weight: 600;
+}
+
+.nome span {
+    color: #6366f1;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links p {
+    margin: 0;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-links p:hover {
+    color: white;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-btn {
+    background: #6366f1;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-btn:hover {
+    background: #4f46e5;
+}
+
+.container-nome,
+.temas,
+.menu{
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #1f2937;
+
+    display: grid;
+    place-items: center;
+
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: rgba(255, 255, 255, 0.219) 1px 1px 1px 1px;
+}
+
+.container-nome {
+    background-color: #6366f1;
+}
+
+.container-nome i{
+    font-size: 18px;
+    color: white;
+}
+.temas i,
+.menu i {
+    font-size: 18px;
+    color: #9ca3af;
+}
+.temas:hover{
+    border: 2px rgb(99, 102, 241) solid;
+}
+
+/* fim do header */
+
+.container-titulo h1{
+margin-right: 2rem;
+font-size: 4rem;
+}
+.container-titulo span{
+    color: rgb(139, 92, 246);
+}
+.container-titulo p{
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.ver-projeto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 8px;
+    background: rgb(99, 102, 241);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s;
+    border: 0;
+}
+
+.ver-projeto:hover{
+    background-color: rgb(86, 88, 209);
+    transition: transform 0.3s ease;
+}
+
+.ver-projeto p,
+.contatos p{
+    color: white;
+margin: 0;
+}
+
+.contatos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 8px;
+    background: #1f2937;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 0.2s;
+    border: 2px solid #323642;
+}
+
+.contatos:hover{
+    border: 2px rgb(99, 102, 241) solid;
+    color: rgb(99, 102, 241);
+}
+
+.container-transportar {
+  display: flex;
+  gap: 1rem; 
+  margin-top: 4rem;
+}
+
+.ver-projeto{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.container-contatos{
+    display: flex;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+/* Fim do titulo */
+
+.imagem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imagem > img {
+    margin-top: 3rem;
+    width: 430px;
+    height: 420px;
+    border-radius: 18px;
+    border: rgba(126, 126, 126, 0.562) solid 2px;
+    position: relative;
+    z-index: 1;
+}
+
+
+.react, .node, .postgres{
+    display: flex;
+    width: 6.5rem;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #1f2937;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: rgba(255, 255, 255, 0.219) 1px 1px 1px 1px;
+    font-weight: 500;
+}
+
+.react p,
+.node p,
+.postgres p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+}
+
+.react{
+    position: absolute;
+    bottom: 230px;
+    right: 400px;
+    animation: animation 4s ease-in-out infinite;
+}
+
+.react span{
+    color: #61DAFB;
+}
+
+.node{
+    position: absolute;
+    bottom: 130px;
+    animation: animation 4s ease-in-out infinite;
+}
+
+.node span{
+    color: #4e7456;
+}
+
+.postgres{
+    position: absolute;
+    top: 950px;
+    animation: animation 4s ease-in-out infinite;
+}
+
+.postgres span{
+    color: #577ba7;
+}
+
+@keyframes animation {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+.titulo-sobre-mim{
+    font-size: 1.4rem;
+    margin-top: 4rem;
+    color: rgb(99, 102, 241);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 650;
+    margin-top: 4rem;
+}
+
+.sobre-mim h1{
+margin-right: 2rem;
+font-size: 2.7rem;
+}
+
+.texto{
+font-size: 20px;
+color: #9ca3af;
+}
+
+/* fim do sobre mim */
+
+.habilidades .titulo-habilidades{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-habilidades{
+    font-size: 1.4rem;
+    margin-top: 4rem;
+    color: rgb(99, 102, 241);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 650;
+    margin: 3rem 0rem 3rem 0rem;
+}
+
+.habilidades h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+font-size: 2.7rem;
+}
+

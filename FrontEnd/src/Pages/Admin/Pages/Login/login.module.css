@@ -1,0 +1,77 @@
+body {
+  background-color: #0f1115;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #161a23;
+  color: white;
+  width: 30rem;
+  border: 2px solid rgba(78, 78, 78, 0.329);
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px rgba(78, 78, 78, 0.329);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h2 {
+  padding-top: 3rem;
+}
+
+.container p {
+  padding-bottom: 3rem;
+  color: rgb(156, 163, 175);
+  font-size: 20px;
+  margin: 0px;
+}
+
+.container input {
+    color: white;
+    outline: none;
+  margin: 0rem 1rem 2rem 1rem;
+  width: 25rem;
+  padding: 10px 5px 10px 10px;
+  border-radius: 8px;
+ background-color: #0f1115;
+ border: 1px solid #2d323d
+}
+
+.container input:focus{
+    border: 2px solid #6366F1;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: none;
+  border: none;
+}
+
+.input label{
+padding-bottom: 0.5rem;
+margin-left: 15px;
+color: rgb(156, 163, 175);
+  font-size: 20px;
+}
+
+.container button{
+    width: 23rem;
+    height: 3.5rem;
+    color: white;
+    border-radius: 8px;
+    background-color: #6366F1;
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    border: none;
+}
+.container button:hover{
+    background-color: #4e50c0
+}

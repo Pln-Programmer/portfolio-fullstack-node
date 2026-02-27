@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Admin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="login.module.css" />
+  </head>
+  <body>
+    <div class="body">
+      <div class="container">
+        <h2>Bem Vindo de volta!</h2>
+        <p>Acesso apenas para admins.</p>
+        <div class="input">
+          <label for="">Email</label>
+          <input id="email" type="email" placeholder="Digite aqui" required />
+          <label for="">Senha</label>
+          <input id="senha" type="password" placeholder="Digite aqui" required />
+        </div>
+        <button onclick="login()" class="button">Entrar -></button>
+      </div>
+    </div>
+    <script src="../../../../js/login.js"></script>
+  </body>
+</html>
