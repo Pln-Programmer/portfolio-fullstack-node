@@ -311,3 +311,123 @@ color: #9ca3af;
 font-size: 2.7rem;
 }
 
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f1115;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e4e4e7;
+}
+
+/* CONTAINER GERAL */
+.tecnologias {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* CARD PADRÃO */
+.tecnologias > div {
+  background-color: #11131a;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #1f2430;
+
+  transition: 0.3s ease;
+}
+
+.tecnologias > div:hover {
+  transform: translateY(-8px);
+  border-color: #2d3345;
+}
+
+/* ÍCONES */
+.tecnologias i {
+  font-size: 22px;
+  color: #6366f1;
+}
+
+/* CONTAINER DO ÍCONE */
+.tecnologias > div > div {
+  width: 55px;
+  height: 55px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+}
+
+/* CORES DIFERENTES PARA CADA ÁREA */
+.container-backend {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid #6366f1;
+}
+
+.container-frontend {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid #a855f7;
+}
+
+.container-database {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10b981;
+}
+
+.container-devops {
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid #0ea5e9;
+}
+
+.container-security {
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid #eab308;
+}
+
+.container-architecture {
+  background: rgba(236, 72, 153, 0.1);
+  border: 1px solid #ec4899;
+}
+
+/* TÍTULO */
+.tecnologias p:first-of-type {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* DESCRIÇÃO */
+.tecnologias p:nth-of-type(2) {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* LISTA (TAGS) */
+.tecnologias ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tecnologias li {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 20px;
+  border: 1px solid #2a2f3c;
+  background-color: #0f131d;
+  color: #cbd5e1;
+}
