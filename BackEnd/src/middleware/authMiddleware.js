@@ -10,7 +10,7 @@ dotenv.config();
 // Como o token chega:
 // - Header: Authorization: Bearer <token>
 // - Ex.: Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
-export function autenticarToken(req, res, next) {
+export function AuthMiddleware(req, res, next) {
   // Pega o header "authorization" (pode vir em minúsculo).
   const authHeader = req.headers["authorization"];
 

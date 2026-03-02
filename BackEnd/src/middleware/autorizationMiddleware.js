@@ -4,7 +4,7 @@
 // Se o perfil estiver permitido, chama a próxima função de middleware; caso contrário, retorna um erro 403.
 
 // Retorna um objeto JSON com um erro se o acesso for negado.
-export function permitirPerfis(perfisPermitidos) {
+export  function permitirPerfis(perfisPermitidos) {
 	return (req, res, next) => {
 		const perfil = req.usuario && req.usuario.perfil;
 		if (perfisPermitidos.includes(perfil)) {
@@ -17,8 +17,8 @@ export function permitirPerfis(perfisPermitidos) {
 
 // Mantém o nome usado nas rotas: autorization['admin'].
 // Observação: o token precisa conter `perfil` (ex.: "admin").
-export const autorization = {
+export const AutorizationMiddleware = {
 	admin: permitirPerfis(["admin"]),
 };
 
-export default autorization;
+export default AutorizationMiddleware;

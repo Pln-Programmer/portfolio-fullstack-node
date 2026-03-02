@@ -1,77 +1,257 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerencia das Tecnologias</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="tecnologias.module.css">
-</head>
-<body>
+
+    <link rel="stylesheet" href="tecnologias.module.css" />
+  </head>
+
+  <body>
     <div class="container">
-  <div style="display:flex;justify-content:space-between;align-items:center;">
-    <h1>Tecnologias</h1>
-    <button class="primary-btn" onclick="openModal()">Adicionar Tecnologia</button>
-  </div>
+      <div class="header">
+        <h1>Tecnologias</h1>
+        <button class="primary-btn" onclick="openModal()">
+          Adicionar Tecnologia
+        </button>
+      </div>
 
-  <div class="filters">
-    <input class="search" placeholder="Pesquisar..." oninput="render()">
-    <div class="categories"></div>
-  </div>
+      <div class="filters">
+        <input class="search" placeholder="Pesquisar..." oninput="render()" />
+        <div class="categories"></div>
+      </div>
 
-  <div class="grid" id="grid"></div>
-</div>
-
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <h3 id="modalTitle">Nova Tecnologia</h3>
-    <input id="name" placeholder="Nome">
-    <input id="icon" placeholder="Ícone (emoji)">
-    <select id="category"></select>
-    <select id="level">
-      <option>Básico</option>
-      <option>Intermediário</option>
-      <option>Avançado</option>
-    </select>
-    <textarea id="description" placeholder="Descrição"></textarea>
-
-    <div class="modal-buttons">
-      <button onclick="closeModal()">Cancelar</button>
-      <button class="primary-btn" onclick="save()">Salvar</button>
+      <div class="grid" id="grid"></div>
     </div>
-  </div>
-</div>
 
-<div class="toast" id="toast"></div>
-      card.innerHTML=`
-        <div class="card-header">
-          <div style="display:flex;gap:10px;">
-            <div class="icon-box">${t.icon}</div>
-            <div>
-              <strong>${t.name}</strong><br>
-              <small>${t.category}</small>
+    <div class="modal-overlay" id="modal" onclick="outsideClick(event)">
+      <div class="modal">
+        <h3 id="modalTitle">Nova Tecnologia</h3>
+
+        <input id="name" placeholder="Nome" />
+        <select id="category"></select>
+
+        <select id="level">
+          <option>Básico</option>
+          <option>Intermediário</option>
+          <option>Avançado</option>
+        </select>
+
+        <textarea id="description" placeholder="Descrição"></textarea>
+
+        <div class="modal-buttons">
+          <button onclick="closeModal()">Cancelar</button>
+          <button class="primary-btn" onclick="save()">Salvar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      let technologies = [
+        {
+          id: 1,
+          name: "React",
+          category: "Frontend",
+          level: "Avançado",
+          description: "Biblioteca para UI.",
+        },
+        {
+          id: 2,
+          name: "Node.js",
+          category: "Backend",
+          level: "Avançado",
+          description: "Runtime server-side.",
+        },
+      ];
+
+      let editingId = null;
+      let filter = "Todas";
+
+      const categories = ["Todas", "Frontend", "Backend", "Database", "DevOps"];
+
+      function renderCategories() {
+        const container = document.querySelector(".categories");
+        container.innerHTML = "";
+
+        for (let i = 0; i < categories.length; i++) {
+          const button = document.createElement("button");
+          button.textContent = categories[i];
+
+          if (categories[i] === filter) {
+            button.classList.add("active");
+          }
+
+          button.onclick = function () {
+            filter = categories[i];
+            renderCategories();
+            render();
+          };
+
+          container.appendChild(button);
+        }
+      }
+
+      function loadCategorySelect() {
+        const select = document.getElementById("category");
+        select.innerHTML = "";
+
+        for (let i = 0; i < categories.length; i++) {
+          if (categories[i] !== "Todas") {
+            const option = document.createElement("option");
+            option.value = categories[i];
+            option.textContent = categories[i];
+            select.appendChild(option);
+          }
+        }
+      }
+
+      function render() {
+        const search = document.querySelector(".search").value.toLowerCase();
+        const grid = document.getElementById("grid");
+        grid.innerHTML = "";
+
+        for (let i = 0; i < technologies.length; i++) {
+          const tech = technologies[i];
+
+          const matchName = tech.name.toLowerCase().includes(search);
+          const matchCategory = filter === "Todas" || tech.category === filter;
+
+          if (matchName && matchCategory) {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            card.innerHTML = `
+          <div class="card-header">
+            <div style="display:flex;gap:10px;">
+              <div>
+                <strong>${tech.name}</strong><br>
+                <small>${tech.category}</small>
+              </div>
             </div>
+            <span class="badge">${tech.level}</span>
           </div>
-          <span class="badge">${t.level}</span>
-        </div>
-        <p>${t.description}</p>
-        <div class="actions">
-          <button onclick="edit(${t.id})">Editar</button>
-          <button onclick="removeTech(${t.id})">Excluir</button>
-        </div>
-      `;
-      grid.appendChild(card);
-    });
-}
-</script>
-</body>
+
+          <p>${tech.description}</p>
+
+          <div class="actions">
+            <button onclick="edit(${tech.id})">Editar</button>
+            <button onclick="removeTech(${tech.id})">Excluir</button>
+          </div>
+        `;
+
+            grid.appendChild(card);
+          }
+        }
+      }
+
+      function openModal() {
+        editingId = null;
+
+        document.getElementById("modalTitle").textContent = "Nova Tecnologia";
+        document.getElementById("name").value = "";
+        document.getElementById("description").value = "";
+        document.getElementById("level").value = "Básico";
+
+        document.getElementById("modal").classList.add("active");
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.remove("active");
+      }
+
+      function outsideClick(event) {
+        if (event.target.id === "modal") {
+          closeModal();
+        }
+      }
+
+      function save() {
+        const name = document.getElementById("name").value.trim();
+        const category = document.getElementById("category").value;
+        const level = document.getElementById("level").value;
+        const description = document.getElementById("description").value;
+
+        if (name === "") {
+          alert("Digite um nome!");
+          return;
+        }
+
+        if (editingId === null) {
+          technologies.push({
+            id: Date.now(),
+            name: name,
+            category: category,
+            level: level,
+            description: description,
+          });
+
+          showToast("Adicionado!");
+        } else {
+          for (let i = 0; i < technologies.length; i++) {
+            if (technologies[i].id === editingId) {
+              technologies[i].name = name;
+              technologies[i].category = category;
+              technologies[i].level = level;
+              technologies[i].description = description;
+            }
+          }
+
+          showToast("Atualizado!");
+        }
+
+        closeModal();
+        render();
+      }
+
+      function edit(id) {
+        for (let i = 0; i < technologies.length; i++) {
+          if (technologies[i].id === id) {
+            editingId = id;
+
+            document.getElementById("modalTitle").textContent =
+              "Editar Tecnologia";
+            document.getElementById("name").value = technologies[i].name;
+            document.getElementById("category").value =
+              technologies[i].category;
+            document.getElementById("level").value = technologies[i].level;
+            document.getElementById("description").value =
+              technologies[i].description;
+
+            document.getElementById("modal").classList.add("active");
+          }
+        }
+      }
+
+      function removeTech(id) {
+        let newList = [];
+
+        for (let i = 0; i < technologies.length; i++) {
+          if (technologies[i].id !== id) {
+            newList.push(technologies[i]);
+          }
+        }
+
+        technologies = newList;
+        render();
+        showToast("Removido!");
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.style.display = "block";
+
+        setTimeout(function () {
+          toast.style.display = "none";
+        }, 3000);
+      }
+
+      renderCategories();
+      loadCategorySelect();
+      render();
+    </script>
+  </body>
 </html>

@@ -19,5 +19,5 @@ async function login() {
     const json = await res.json();
     localStorage.setItem("token", json.token);
     alert("Logado!");
-    window.location.href = "http://127.0.0.1:5500/FrontEnd/src/Pages/User/user.html";
+    window.location.href = "http://127.0.0.1:5500/FrontEnd/src/Pages/Admin/Pages/Tecnologias/tecnologias.html";
 }

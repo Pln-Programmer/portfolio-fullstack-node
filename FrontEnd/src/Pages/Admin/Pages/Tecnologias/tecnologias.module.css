@@ -1,18 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 * {
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+.adicionar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body {
   margin: 0;
-  background: #0F1115;
-  color: #fff;
+  background: #0f1115;
+  color: #ffffff;
   padding: 40px 20px;
 }
 
 .container {
   max-width: 1100px;
   margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
@@ -27,7 +41,7 @@ button {
 }
 
 .primary-btn {
-  background: #6366F1;
+  background: #6366f1;
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
@@ -45,11 +59,13 @@ button {
   flex-wrap: wrap;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   padding: 10px 14px;
   border-radius: 8px;
   border: 1px solid #232734;
-  background: #1C2030;
+  background: #1c2030;
   color: white;
   font-size: 14px;
 }
@@ -64,14 +80,14 @@ input, select, textarea {
   border-radius: 8px;
   background: transparent;
   border: 1px solid #232734;
-  color: #9CA3AF;
+  color: #9ca3af;
   font-size: 12px;
 }
 
 .categories button.active {
-  background: rgba(99,102,241,0.15);
-  color: #6366F1;
-  border-color: rgba(99,102,241,0.4);
+  background: rgba(99, 102, 241, 0.15);
+  color: #6366f1;
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
 .grid {
@@ -81,7 +97,7 @@ input, select, textarea {
 }
 
 .card {
-  background: #161A23;
+  background: #161a23;
   border: 1px solid #232734;
   border-radius: 14px;
   padding: 20px;
@@ -99,6 +115,7 @@ input, select, textarea {
   width: 40px;
   height: 40px;
   border-radius: 10px;
+  background: rgba(99, 102, 241, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,11 +127,13 @@ input, select, textarea {
   padding: 3px 10px;
   border-radius: 100px;
   font-weight: 600;
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
 }
 
 .card p {
   font-size: 13px;
-  color: #9CA3AF;
+  color: #9ca3af;
   flex: 1;
 }
 
@@ -131,33 +150,50 @@ input, select, textarea {
   border-radius: 7px;
   border: 1px solid #232734;
   background: transparent;
-  color: #9CA3AF;
+  color: #9ca3af;
   font-size: 12px;
 }
 
 .actions button:hover {
-  border-color: #6366F1;
-  color: #6366F1;
+  border-color: #6366f1;
+  color: #6366f1;
 }
 
-.modal-overlay {
+/* .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   display: none;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.modal {
-  background: #161A23;
+
+/* .modal {
+  background: #161a23;
   border-radius: 18px;
   padding: 28px;
   width: 90%;
   max-width: 520px;
+} */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-.modal input, .modal textarea, .modal select {
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
   width: 100%;
   margin-bottom: 12px;
 }
@@ -179,13 +215,14 @@ input, select, textarea {
 }
 
 .toast.success {
-  background: rgba(34,197,94,0.15);
-  color: #22C55E;
-  border: 1px solid rgba(34,197,94,0.35);
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.35);
 }
 
 .toast.error {
-  background: rgba(239,68,68,0.15);
-  color: #EF4444;
-  border: 1px solid rgba(239,68,68,0.35);
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.35);
 }
+
