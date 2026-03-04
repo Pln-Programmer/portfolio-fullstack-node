@@ -21,7 +21,6 @@ export class UsuarioController {
             if (!usuario) {
                 return res.status(404).json({ erro: "Usuário não encontrado" });
             }
-            // Compara senha digitada com o hash salvo no banco
             const senhaValida = await bcrypt.compare(senha, usuario.senha);
             if (!senhaValida) {
                 return res.status(401).json({ erro: "E-mail ou senha incorreta" });

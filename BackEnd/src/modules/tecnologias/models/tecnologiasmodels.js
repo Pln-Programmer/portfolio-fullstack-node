@@ -17,8 +17,8 @@ export const TecnologiasModel = sequelize.define(
           msg: "O nome não pode estar vazio",
         },
         len: {
-          args: [3, 100],
-          msg: "O nome deve ter entre 3 e 100 caracteres",
+          args: [1, 100],
+          msg: "O nome deve ter entre 1 e 100 caracteres",
         },
       },
     },

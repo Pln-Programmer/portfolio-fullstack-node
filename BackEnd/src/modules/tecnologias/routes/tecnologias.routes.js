@@ -6,7 +6,8 @@ import { AutorizationMiddleware } from "../../../middleware/autorizationMiddlewa
 
 const router = express.Router();
 
-router.post("/", AuthMiddleware, AutorizationMiddleware.admin,TecnologiaController.criar);
+router.get("/", TecnologiaController.listar)
+router.post("/",TecnologiaController.criar);
 router.put("/:id", AuthMiddleware, AutorizationMiddleware.admin,TecnologiaController.editar);
 router.delete("/:id", AuthMiddleware, AutorizationMiddleware.admin,TecnologiaController.excluir);
 export default router;

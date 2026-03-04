@@ -22,8 +22,7 @@ module.exports = {
 
       nivel: {
         type: Sequelize.ENUM('Básico', 'Intermediário', 'Avançado'),
-        allowNull: false,
-        defaultValue: 'Básico',
+        allowNull: false
       },
 
       descricao: {
